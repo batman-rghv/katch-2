@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        .team-section {
+            background-color: #fff; /* White background */
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .team-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #b87333;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .team-member {
+            position: relative;
+            width: 250px;
+            text-align: center;
+        }
+
+        .polaroid {
+            background-color: #fff;
+            border: 10px solid #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 5px;
+            transform: rotate(-3deg); /* Slight rotation for a casual look */
+            position: relative;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .polaroid .caption {
+            margin-top: 10px;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .polaroid::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: #d9534f; /* Red pin color */
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        /* Navigation Bar */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
+            backdrop-filter: blur(5px); /* Adds a blur effect */
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .sticky-header nav ul {
+            display: flex;
+            justify-content: center; /* Center align navigation items */
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sticky-header nav ul li {
+            margin: 0 20px;
+        }
+
+        .sticky-header nav ul li a {
+            color: #333; /* Dark gray text */
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .sticky-header nav ul li a:hover {
+            color: #b87333; /* Copper color on hover */
+        }
+        
+        html, body {
+    height: 100%; /* Ensure the body takes the full height of the viewport */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body > *:not(footer) {
+    flex: 1; /* Push the footer to the bottom */
+}
+
+footer {
+    background-color: transparent;
+    color: #b87333;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0;
+    position: relative; /* Ensure it stays at the bottom */
+    width: 100%;
+    margin-top: auto; /* Push the footer to the bottom of the page */
+}
+
+footer p {
+    margin: 0;
+}
+    </style>
+</head>
+<body>
+<header class="header sticky-header">
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./history.html">History</a></li>
+            <li><a href="./investments.html">Investments</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+    <section class="team-section">
+        <h1>Our Team</h1>
+        <div class="team-container">
+            <!-- CEO -->
+            <div class="team-member" style="position: absolute; top: 300px; left: 50%; transform: translateX(-50%);">
+                <div class="polaroid" style="width: 300px;">
+                    <img src="../assets/images/MrUsama.jpeg" alt="Usama Al Wadiya">
+                    <div class="caption">
+                        <h3>Usama Al Wadiya</h3>
+                        <p>CEO and Founder</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Team Members -->
+            <div class="team-member" style="position: absolute; top: 400px; left: 20%;">
+                <div class="polaroid" style="width: 200px;">
+                    <img src="../assets/images/manager.jpeg" alt="Azmat Ali">
+                    <div class="caption">
+                        <h3>Azmat Ali</h3>
+                        <p>Public Relations Manager</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member" style="position: absolute; top: 600px; left: 60%;">
+                <div class="polaroid" style="width: 200px;">
+                    <img src="../assets/images/karan.jpeg" alt="Karan Anora">
+                    <div class="caption">
+                        <h3>Karan Anora</h3>
+                        <p>Real Estate Agent</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member" style="position: absolute; top: 800px; left: 30%;">
+                <div class="polaroid" style="width: 200px;">
+                    <img src="../assets/images/chopra.jpeg" alt="Karan Chopra">
+                    <div class="caption">
+                        <h3>Karan Chopra</h3>
+                        <p>Real Estate Agent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <!-- <p>© 2025 Katch Real Estate Dubai. All Rights Reserved</p> -->
+        <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-icon">
+            <img src="../assets/icons/whatsapp.png" alt="WhatsApp">
+        </a>
+    </footer>
+</body>
+</html>
