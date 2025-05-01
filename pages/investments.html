@@ -7,6 +7,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
+    .investment-intro {
+    text-align: left; /* Align all text to the left */
+    margin: 0 auto; /* Center the section */
+    margin-left: 100px ;
+    max-width: 800px; /* Set a maximum width for better readability */
+  }
+  .investment-intro h1{
+    text-align: center; /* Center-align the heading horizontally */
+    position: absolute; /* Position the heading absolutely */
+    top: 70px; /* Position it at the top of the page */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Adjust for the heading's width */
+    margin: 0; /* Remove default margins */
+    font-size: 40px; /* Adjust font size if needed */
+    z-index: 10; 
+  }
+
+  .investment-intro ul {
+    padding-left: 20px; /* Add indentation for list items */
+  }
+
+  .investment-intro h2, 
+  .investment-intro h3, 
+  .investment-intro p, 
+  .investment-intro ul li {
+    margin-bottom: 20px; /* Add spacing between elements */
+  }
     /* General Font Styling */
     h1, h2 {
         font-family: 'Playfair Display'; /* Use Playfair Display for headings */
@@ -98,7 +125,52 @@
       padding: 0; /* Remove default padding */
       margin: 0; /* Remove default margin */
     }
-  </style>
+    
+    .investment-wrapper {
+    display: flex; /* Align the text and images sections side by side */
+    gap: 40px; /* Add space between the text and images sections */
+  }
+
+  .investment-intro {
+    flex: 2; /* Take up 2/3 of the space */
+    text-align: left; /* Align text to the left */
+  }
+
+  .forex-images-section {
+    flex:1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.forex-images-section img {
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 100px;
+  margin-left: 20px;
+  translate: translateX(20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.forex-images-section * {
+  display: block !important;
+}
+
+  .forex-images img:hover {
+    transform: translateY(-10px) scale(1.05); /* Add bounce and slight zoom on hover */
+  }
+  /* Zigzag Pattern */
+  .forex-images img:nth-child(odd) {
+    margin-left: 50px; /* Indent odd images to the right */
+  }
+
+  .forex-images img:nth-child(even) {
+    margin-left: 0; /* Align even images to the left */
+  }
+    </style>
 </head>
 <body>
   <header class="header">
@@ -127,15 +199,17 @@
   </header>
 
   <main class="investments-page">
-    <section class="investment-intro">
+    <div class="investment-wrapper">
+      <section class="investment-intro">
       <h1>INVESTMENTS</h1>
+      <br><br><br><br><br><br>
       <p>At Katch Real Estate, we help you grow your wealth through <strong>Smart Real Estate and Forex Investments.</strong></p>
       <p>We tailor strategies to your goals—whether it's property income, capital growth, development potential, or forex trading. With 21+ years of experience and a hands-on approach, Katch is your trusted partner in building lasting financial success.</p>
       
       <h2>Forex Investment Information</h2>
       <h3>What is Forex Trading?</h3>
       <p>Forex (foreign exchange) trading is the global marketplace for buying and selling currencies. It is the largest and most liquid financial market in the world, with a daily trading volume exceeding $7 trillion. Investors trade forex to profit from changes in currency values, hedge against international risk, or diversify their portfolios.</p>
-      
+
       <h3>Why Invest in Forex?</h3>
       <ul>
         <li>📈 <strong>High Liquidity:</strong> Easily buy and sell currencies without delays.</li>
@@ -175,8 +249,20 @@
         <li>✅ <strong>Expert Support:</strong> Professional analysts and customer service 24/5.</li>
         <li>✅ <strong>Flexible Accounts:</strong> Designed for beginners to experienced traders.</li>
       </ul>
+      
     </section>
-
+    <section class="forex-images-section">
+      <div class="forex-images">
+        <img src="../assets/images/forex1.jpg" alt="Forex Image 1">
+        <img src="../assets/images/forex2.jpg" alt="Forex Image 2">
+        <img src="../assets/images/forex3.jpg" alt="Forex Image 3">
+        <img src="../assets/images/forex4.webp" alt="Forex Image 4">
+        <img src="../assets/images/forex5.jpg" alt="Forex Image 5">
+        <img src="../assets/images/forex6.avif" alt="Forex Image 6">
+      </div>
+    </section>
+  </div>
+  
     <section class="investment-content">
       <div class="investment-manager">
         <img src="../assets/images/abdullah.jpeg" alt="Investment Manager & Advisor">
@@ -206,7 +292,7 @@
 
   <footer>
     <p>© 2025 Katch Real Estate Dubai. All Rights Reserved</p>
-    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-icon">
+    <a href="https://wa.me/971505126595?text=Hello%20Katch%21%20I%27m%20interested%20in%20your%20real%20estate%20services.%20Please%20tell%20me%20more%20about%20your%20available%20properties.%20Thank%20you%21" target="_blank" class="whatsapp-icon">
         <img src="../assets/icons/whatsapp.png" alt="WhatsApp">
     </a>
 </footer>

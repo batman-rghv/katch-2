@@ -175,15 +175,22 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align text to the top */
+    text-align: left; /* Align all text to the left */
 }
 
 .services-right p,
-
 .services-right ul {
-    font-family: 'Lato', sans-serif; /* Use Lato for the text */
-    font-size: 20px; /* Adjust font size if needed */
-    color: #333; /* Dark gray for better readability */
-    line-height: 1.6; /* Improve line spacing for readability */
+    margin-left: 0; /* Ensure no extra indentation */
+    padding-left: 20px; /* Remove padding */
+}
+
+.services-right ul li {
+    margin-left: 20px; /* Align list items with the paragraph */
+}
+
+.services-right p{
+    font-size: 20px;
+    font-family: Lato;
 }
 
 .services-right ul {
@@ -197,7 +204,9 @@
 }
 
 .services-right ul li {
-    margin-bottom: 10px; /* Add spacing between list items */
+    margin-bottom: px; /* Add spacing between list items */
+    font-size: 20px; /* Set font size to 20px */
+    font-family: Lato;
 }
 
 /* Navigation Bar Styling */
@@ -388,7 +397,7 @@ nav ul li:hover .dropdown-menu {
     </div>
 </div>
   <footer> <p>© 2025 Katch Real Estate Dubai. All Rights Reserved</p>
-    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-icon">
+    <a href="https://wa.me/971505126595?text=Hello%20Katch%21%20I%27m%20interested%20in%20your%20real%20estate%20services.%20Please%20tell%20me%20more%20about%20your%20available%20properties.%20Thank%20you%21" target="_blank" class="whatsapp-icon">
         <img src="./assets/icons/whatsapp.png" alt="WhatsApp">
     </a>
   </footer>

@@ -7,7 +7,7 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/styles.css">
   <style>
     h1, h2 {
         font-family: 'Playfair Display'; /* Use Playfair Display for headings */
@@ -21,7 +21,7 @@
         background-size: cover;
         background-position: center;
         padding: 100px 20px;
-        padding-top: 80px; /* Set the top padding to 150px */
+        padding-top: 45px; /* Set the top padding to 45px */
         text-align: center;
         color: #fff; /* White text for contrast */
     }
@@ -33,7 +33,7 @@
         margin-bottom: 60px;
         text-transform: uppercase;
         letter-spacing: 2px;
-        border-bottom: 2px solid #b87333;
+        /* border-bottom: 2px solid #b87333; */
         display: inline-block;
         padding-bottom: 10px;
     }
@@ -58,8 +58,14 @@
         grid-column: 2; /* Place the manager in the second column */
         grid-row: 1; /* Place the manager in the first row */
         justify-self: start; /* Align to the start of the column */
-        transform: translateX(180px); /* Move the image 100px to the right */
+        transform: translateX(25px); /* Move the image 100px to the right */
 
+    }
+    .team-member.employee {
+        grid-column: 2; /* Place the manager in the second column */
+        grid-row: 1; /* Place the manager in the first row */
+        justify-self: start; /* Align to the start of the column */
+        transform: translateX(430px); /* Move the image 100px to the right */
     }
 
     .team-member.agent1 {
@@ -81,7 +87,10 @@
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
     }
-
+    .team-member.agent2 img {
+        height: 250px; /* Set the height to 300px */
+        width: auto; /* Maintain aspect ratio */
+    }
     .team-member.ceo img {
         width: 400px; /* Larger size for the CEO */
     }
@@ -250,7 +259,11 @@ footer p {
                 <h3>Azmat Ali</h3>
                 <p>Public Relations Manager</p>
             </div>
-
+            <div class="team-member employee">
+                <img src="../assets/images/abdullah.jpeg" alt="Abdullah">
+                <h3>Abdullah</h3>
+                <p>Investment Manager</p>
+            </div>
             <!-- Real Estate Agent 1 -->
             <div class="team-member agent1">
                 <img src="../assets/images/karan.jpeg" alt="Karan Arora">
@@ -268,7 +281,7 @@ footer p {
     </section>
     <footer>
         <p>© 2025 Katch Real Estate Dubai. All Rights Reserved</p>
-        <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-icon">
+        <a href="https://wa.me/971505126595?text=Hello%20Katch%21%20I%27m%20interested%20in%20your%20real%20estate%20services.%20Please%20tell%20me%20more%20about%20your%20available%20properties.%20Thank%20you%21" target="_blank" class="whatsapp-icon">
             <img src="../assets/icons/whatsapp.png" alt="WhatsApp">
         </a>
     </footer>

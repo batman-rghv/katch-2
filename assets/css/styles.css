@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #fff;
   background-color: #fff; /* Default background color */
 }
@@ -368,7 +368,7 @@ body.scrolled .sticky-logo {
 .investments-page {
   background-color: #fff;
   padding: 40px 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato';
 }
 
 .investment-intro {
@@ -407,7 +407,8 @@ body.scrolled .sticky-logo {
 .investment-manager img {
   width: 250px; /* Set a fixed size for the circular image */
   height: 250px;
-  border-radius: 50%; /* Keep the circular shape */
+  transform: translateX(0) translateY(20px);
+  border-radius: 10%;
   object-fit: cover;
   margin-top: 20px; /* Add space below the heading */
   border: 3px solid #333;
