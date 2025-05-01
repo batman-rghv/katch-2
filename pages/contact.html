@@ -5,15 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - Katch Real Estate</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
     body {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Playfair Display';
       margin: 0;
       padding: 0;
       background-color: #ffffff; /* White background */
     }
+    h1, h2 {
+        font-family: 'Playfair Display'; /* Use Playfair Display for headings */
+    }
 
+    body, p, label, input, textarea, button, nav ul li a, ul li {
+        font-family: 'Lato'; /* Use Lato for all other text */
+    }
     .contact-header {
       text-align: center;
       padding: 50px 20px;
@@ -115,7 +122,80 @@
     .contact-form button:hover {
       background-color: #555555; /* Medium gray on hover */
     }
+    /* Navigation Bar Styling */
+    nav {
+            position: fixed; /* Fix the nav bar at the top */
+            top: 0;
+            width: 100%; /* Full width */
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            backdrop-filter: blur(5px); /* Adds a blur effect */
+            z-index: 1000; /* Ensure it stays above other elements */
+            padding: 15px 0; /* Add padding for spacing */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0); /* Subtle shadow */
+        }
 
+        nav ul {
+            list-style: none; /* Remove default list styling */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Center-align navigation items */
+            gap: 200px; /* Space between items */
+        }
+
+        nav ul li {
+            position: relative; /* Enable positioning for dropdown menus */
+        }
+
+        nav ul li a {
+            font-family: 'Lato', sans-serif; /* Change font to Lato */
+            text-decoration: none; /* Remove underline */
+            color: #333; /* Dark gray for links */
+            font-size: 16px; /* Adjust font size */
+            font-weight: 600; /* Slightly bold */
+            transition: color 0.3s ease; /* Smooth hover effect */
+        }
+
+        nav ul li a:hover {
+            color: #00509e; /* Change color on hover */
+        }
+
+        nav ul li a.active {
+            text-decoration: underline; /* Underline the active link */
+            color: #00509e; /* Highlight color for the active link */
+            font-weight: bold; /* Make the active link bold */
+        }
+
+        /* Dropdown Menu Styling */
+        nav ul li .dropdown-menu {
+            display: none; /* Hide by default */
+            position: absolute;
+            top: 100%; /* Position below the parent list item */
+            left: 50%; /* Start at the middle of the parent */
+            transform: translateX(-50%); /* Center the dropdown menu */
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent white background */
+            padding: 10px 20px;
+            list-style: none;
+            text-align: left;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+            z-index: 10;
+        }
+
+        nav ul li .dropdown-menu li {
+            padding: 5px 20px;
+        }
+
+        nav ul li .dropdown-menu li a {
+            font-family: 'Lato', sans-serif; /* Change font to Lato */
+            color: #ffffff; /* Dark gray text for dropdown links */
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li:hover .dropdown-menu {
+            display: block; /* Show the dropdown menu on hover */
+        }
     footer {
     position: fixed; /* Always visible at the bottom */
   bottom: 0;
@@ -125,7 +205,7 @@
   background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
   color: #922d2d;
   font-size: 10px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   z-index: 1000; /* Ensure it stays above other elements */
 }
   </style>
@@ -133,18 +213,40 @@
 <body>
   <header class="header">
     <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="./team.html">Team</a></li>
-        <li><a href="./investments.html">Investments</a></li>
-        <li><a href="./history.html">History</a></li>
-      </ul>
+        <ul>
+            <li class="dropdown">
+                <a href="../index.html">Home</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../index.html#developers">Developers and Partners</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#gallery">Gallery</a></li>
+                </ul>
+            </li>
+            <li><a href="../pages/career.html">Career</a></li>
+            <li class="dropdown">
+                <a href="#">About Us</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../pages/team.html">Team</a></li>
+                    <li><a href="../pages/contact.html"  class="active">Contact Us</a></li>
+                </ul>
+            </li>
+            <li><a href="../pages/investments.html">Investments</a></li>
+            <li><a href="./history.html">History</a></li>
+        </ul>
     </nav>
-  </header>
+</header>
 
   <div class="contact-header">
     <h1>Contact Us</h1>
     <p>We’d love to hear from you! Whether you have a question, need assistance, or are interested in learning more about our services, our team is here to help. Please feel free to reach out to us through any of the following methods:</p>
+    <br><br>
+    <p>We are happy to assist you in your preferred language.</p>
+    <p>
+        <strong>Russian / Arabic:</strong> Mr Usama <a href="tel:+971555026666">+971 55 502 6666</a><br>
+        <strong>English / Urdu:</strong> Mr Ali <a href="tel:+971556675177">+971 55 667 5177</a><br>
+        <strong>English / Hindi:</strong> Mr Chopra <a href="tel:+971502862470">+971 50 286 2470</a><br>
+        <strong>English / Hindi:</strong> Mr Arora <a href="tel:+971543460111">+971 54 346 0111</a>
+    </p>
   </div>
 
   <main>
@@ -154,8 +256,8 @@
         <p>Katch Middle East Real Estate Broker LLC</p>
         <p>Office 66B, Zomorrodah Building, Umm Hurair Road, Dubai</p>
         <p><strong>Phone:</strong> <a href="tel:+971556675177">+971 55 667 5177</a></p>
-        <p><strong>Landline</strong><a href="tel:+97143275066"> +971 4 3275066</a></p>
-        <!-- <p><strong>Fax:</strong> PO BOX:78640</p> -->
+        <p><strong>Landline:</strong> <a href="tel:+97143275066">+971 4 3275066</a></p>
+        <p><strong>PO BOX:</strong> 78640</p>
         <p><strong>Email:</strong> <a href="mailto:katchdubai@hotmail.com">katchdubai@hotmail.com</a></p>
         <!-- Embed Google Maps -->
         <iframe 
@@ -170,7 +272,7 @@
 
       <div class="contact-form">
         <h2>Get in Touch</h2>
-        <form action="#" method="POST">
+        <form action="https://formsubmit.co/Katchdubai@hotmail.com" method="POST">
           <input type="text" name="name" placeholder="Your Name" required>
           <input type="email" name="email" placeholder="Your Email" required>
           <input type="text" name="subject" placeholder="Subject" required>

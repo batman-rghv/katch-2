@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/styles.css">
+  <style>
+    h1, h2 {
+        font-family: 'Playfair Display'; /* Use Playfair Display for headings */
+    }
+
+    body, p, label, input, textarea, button, nav ul li a, ul li {
+        font-family: 'Lato'; /* Use Lato for all other text */
+    }
+    .team-section {
+        background-image: url('../assets/images/background.jpg'); /* Add background image */
+        background-size: cover;
+        background-position: center;
+        padding: 100px 20px;
+        padding-top: 80px; /* Set the top padding to 150px */
+        text-align: center;
+        color: #fff; /* White text for contrast */
+    }
+
+    .team-section h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 48px;
+        color: #000000; /* Dark text for contrast */
+        margin-bottom: 60px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #b87333;
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+
+    .team-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        grid-template-rows: auto auto; /* Two rows */
+        gap: 20px; /* Space between items */
+        align-items: center; /* Align items vertically */
+    }
+
+    .team-member.ceo {
+        grid-column: 1; /* Place the CEO in the first column */
+        grid-row: 1 / span 2; /* Span two rows for the CEO */
+        justify-self: center; /* Center horizontally in the column */
+        transform: translateY(-80px); /* Move the image 100px upwards */
+
+    }
+
+    .team-member.manager {
+        grid-column: 2; /* Place the manager in the second column */
+        grid-row: 1; /* Place the manager in the first row */
+        justify-self: start; /* Align to the start of the column */
+        transform: translateX(180px); /* Move the image 100px to the right */
+
+    }
+
+    .team-member.agent1 {
+        grid-column: 2; /* Place the first agent in the second column */
+        grid-row: 2; /* Place the first agent in the second row */
+        justify-self: end; /* Align to the end of the column */
+        transform: translateX(-100px); /* Move the image 100px to the left */
+    }
+
+    .team-member.agent2 {
+        grid-column: 2; /* Place the second agent in the second column */
+        grid-row: 2; /* Place the second agent in the second row */
+        justify-self: start; /* Align to the start of the column */
+    }
+
+    .team-member img {
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    }
+
+    .team-member.ceo img {
+        width: 400px; /* Larger size for the CEO */
+    }
+
+    .team-member h3 {
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        color: #000000;
+    }
+
+    .team-member p {
+        font-family: 'Lato', sans-serif;
+        font-size: 16px;
+        margin: 0;
+        color: #000000;
+    }
+       /* Navigation Bar Styling */
+       nav {
+            position: fixed; /* Fix the nav bar at the top */
+            top: 0;
+            width: 100%; /* Full width */
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            backdrop-filter: blur(5px); /* Adds a blur effect */
+            z-index: 1000; /* Ensure it stays above other elements */
+            padding: 15px 0; /* Add padding for spacing */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0); /* Subtle shadow */
+        }
+
+        nav ul {
+            list-style: none; /* Remove default list styling */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Center-align navigation items */
+            gap: 200px; /* Space between items */
+        }
+
+        nav ul li {
+            position: relative; /* Enable positioning for dropdown menus */
+        }
+
+        nav ul li a {
+            font-family: 'Lato', sans-serif; /* Change font to Lato */
+            text-decoration: none; /* Remove underline */
+            color: #333; /* Dark gray for links */
+            font-size: 16px; /* Adjust font size */
+            font-weight: 600; /* Slightly bold */
+            transition: color 0.3s ease; /* Smooth hover effect */
+        }
+
+        nav ul li a:hover {
+            color: #00509e; /* Change color on hover */
+        }
+
+        nav ul li a.active {
+            text-decoration: underline; /* Underline the active link */
+            color: #00509e; /* Highlight color for the active link */
+            font-weight: bold; /* Make the active link bold */
+        }
+
+        /* Dropdown Menu Styling */
+        nav ul li .dropdown-menu {
+            display: none; /* Hide by default */
+            position: absolute;
+            top: 100%; /* Position below the parent list item */
+            left: 50%; /* Start at the middle of the parent */
+            transform: translateX(-50%); /* Center the dropdown menu */
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent white background */
+            padding: 10px 20px;
+            list-style: none;
+            text-align: left;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+            z-index: 10;
+        }
+
+        nav ul li .dropdown-menu li {
+            padding: 5px 20px;
+        }
+
+        nav ul li .dropdown-menu li a {
+            font-family: 'Lato', sans-serif; /* Change font to Lato */
+            color: #ffffff; /* White text for dropdown links */
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li:hover .dropdown-menu {
+            display: block; /* Show the dropdown menu on hover */
+        } 
+        html, body {
+    height: 100%; /* Ensure the body takes the full height of the viewport */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body > *:not(footer) {
+    flex: 1; /* Push the footer to the bottom */
+}
+
+footer {
+    background-color: transparent;
+    color: #b87333;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0;
+    position: relative; /* Ensure it stays at the bottom */
+    width: 100%;
+    margin-top: auto; /* Push the footer to the bottom of the page */
+}
+
+footer p {
+    margin: 0;
+}
+.whatsapp-icon img {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="../index.html">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../index.html#developers">Developers and Partners</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#gallery">Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pages/career.html">Career</a></li>
+                <li class="dropdown">
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../pages/team.html" class="active">Team</a></li>
+                        <li><a href="../pages/contact.html">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pages/investments.html">Investments</a></li>
+                <li><a href="./history.html">History</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="team-section">
+        <h1>Our Team</h1>
+        <div class="team-container">
+            <!-- CEO -->
+            <div class="team-member ceo">
+                <img src="../assets/images/MrUsama.jpeg" alt="Usama Al Wadiya">
+                <h3>Usama Al Wadiya</h3>
+                <p>CEO and Founder</p>
+            </div>
+
+            <!-- Public Relations Manager -->
+            <div class="team-member manager">
+                <img src="../assets/images/manager.jpeg" alt="Azmat Ali">
+                <h3>Azmat Ali</h3>
+                <p>Public Relations Manager</p>
+            </div>
+
+            <!-- Real Estate Agent 1 -->
+            <div class="team-member agent1">
+                <img src="../assets/images/karan.jpeg" alt="Karan Arora">
+                <h3>Karan Arora</h3>
+                <p>Real Estate Agent</p>
+            </div>
+
+            <!-- Real Estate Agent 2 -->
+            <div class="team-member agent2">
+                <img src="../assets/images/chopra.jpeg" alt="Karan Chopra">
+                <h3>Karan Chopra</h3>
+                <p>Real Estate Agent</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Katch Real Estate Dubai. All Rights Reserved</p>
+        <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-icon">
+            <img src="../assets/icons/whatsapp.png" alt="WhatsApp">
+        </a>
+    </footer>
+</body>
+</html>

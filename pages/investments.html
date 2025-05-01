@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investments - Katch Real Estate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    /* General Font Styling */
+    h1, h2 {
+        font-family: 'Playfair Display'; /* Use Playfair Display for headings */
+    }
+
+    body, p, label, input, textarea, button, nav ul li a, ul li {
+        font-family: 'Lato'; /* Use Lato for all other text */
+    }
+
+    /* Navigation Bar Styling */
+    nav {
+        position: fixed; /* Fix the nav bar at the top */
+        top: 0;
+        width: 100%; /* Full width */
+        background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+        backdrop-filter: blur(5px); /* Adds a blur effect */
+        z-index: 1000; /* Ensure it stays above other elements */
+        padding: 15px 0; /* Add padding for spacing */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0); /* Subtle shadow */
+    }
+
+    nav ul {
+        list-style: none; /* Remove default list styling */
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center; /* Center-align navigation items */
+        gap: 200px; /* Space between items */
+    }
+
+    nav ul li {
+        position: relative; /* Enable positioning for dropdown menus */
+    }
+
+    nav ul li a {
+        text-decoration: none; /* Remove underline */
+        color: #333; /* Dark gray for links */
+        font-size: 16px; /* Adjust font size */
+        font-weight: 600; /* Slightly bold */
+        transition: color 0.3s ease; /* Smooth hover effect */
+    }
+
+    nav ul li a:hover {
+        color: #00509e; /* Change color on hover */
+    }
+
+    nav ul li a.active {
+        text-decoration: underline; /* Underline the active link */
+        color: #00509e; /* Highlight color for the active link */
+        font-weight: bold; /* Make the active link bold */
+    }
+
+    /* Dropdown Menu Styling */
+    nav ul li .dropdown-menu {
+        display: none; /* Hide by default */
+        position: absolute;
+        top: 100%; /* Position below the parent list item */
+        left: 50%; /* Start at the middle of the parent */
+        transform: translateX(-50%); /* Center the dropdown menu */
+        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent white background */
+        padding: 10px 20px;
+        list-style: none;
+        text-align: left;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+        z-index: 10;
+    }
+
+    nav ul li .dropdown-menu li {
+        padding: 5px 20px;
+    }
+
+    nav ul li .dropdown-menu li a {
+        color: #ffffff; /* Dark gray text for dropdown links */
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    nav ul li:hover .dropdown-menu {
+        display: block; /* Show the dropdown menu on hover */
+    }
+
+    body, p, h1, h2, h3, ul, li {
+      color: #000; /* Set text color to black */
+    }
+
+    ul {
+      list-style: none; /* Remove bullets */
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav>
+      <ul>
+          <li class="dropdown">
+              <a href="../index.html">Home</a>
+              <ul class="dropdown-menu">
+                  <li><a href="../index.html#developers">Developers and Partners</a></li>
+                  <li><a href="../index.html#services">Services</a></li>
+                  <li><a href="../index.html#gallery">Gallery</a></li>
+              </ul>
+          </li>
+          <li><a href="../pages/career.html">Career</a></li>
+          <li class="dropdown">
+              <a href="#">About Us</a>
+              <ul class="dropdown-menu">
+                  <li><a href="../pages/team.html">Team</a></li>
+                  <li><a href="../pages/contact.html">Contact Us</a></li>
+              </ul>
+          </li>
+          <li><a href="../pages/investments.html" class="active">Investments</a></li>
+          <li><a href="./history.html">History</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="investments-page">
+    <section class="investment-intro">
+      <h1>INVESTMENTS</h1>
+      <p>At Katch Real Estate, we help you grow your wealth through <strong>Smart Real Estate and Forex Investments.</strong></p>
+      <p>We tailor strategies to your goals—whether it's property income, capital growth, development potential, or forex trading. With 21+ years of experience and a hands-on approach, Katch is your trusted partner in building lasting financial success.</p>
+      
+      <h2>Forex Investment Information</h2>
+      <h3>What is Forex Trading?</h3>
+      <p>Forex (foreign exchange) trading is the global marketplace for buying and selling currencies. It is the largest and most liquid financial market in the world, with a daily trading volume exceeding $7 trillion. Investors trade forex to profit from changes in currency values, hedge against international risk, or diversify their portfolios.</p>
+      
+      <h3>Why Invest in Forex?</h3>
+      <ul>
+        <li>📈 <strong>High Liquidity:</strong> Easily buy and sell currencies without delays.</li>
+        <li>🕒 <strong>24/5 Market Access:</strong> Trade anytime during global business days.</li>
+        <li>⚡ <strong>Leverage Opportunities:</strong> Control larger positions with smaller capital.</li>
+        <li>🔄 <strong>Diverse Strategies:</strong> Scalping, day trading, swing trading, and long-term investing.</li>
+        <li>🌐 <strong>Global Exposure:</strong> Access to international economies and financial events.</li>
+      </ul>
+      
+      <h3>How Forex Trading Works</h3>
+      <ul>
+        <li><strong>Currency Pairs:</strong> Currencies are traded in pairs (e.g., EUR/USD, GBP/JPY). You buy one currency while selling another.</li>
+        <li><strong>Bid and Ask Price:</strong> The bid is what buyers are willing to pay; the ask is the price sellers demand.</li>
+        <li><strong>Pips and Lots:</strong> Currency movements are measured in "pips," and trades are sized in "lots."</li>
+      </ul>
+      
+      <h3>Risks of Forex Trading</h3>
+      <ul>
+        <li>⚠️ <strong>Market Volatility:</strong> Prices can move quickly due to economic news, political events, or market sentiment.</li>
+        <li>⚠️ <strong>Leverage Risk:</strong> While leverage magnifies profits, it can also increase losses.</li>
+        <li>⚠️ <strong>Emotional Trading:</strong> Fear and greed can lead to poor decision-making if not properly managed.</li>
+      </ul>
+      <p>🔒 <strong>Risk Management is crucial:</strong> Always use stop-loss orders and limit your risk to a small percentage of your account on each trade.</p>
+      
+      <h3>Getting Started with Forex Investment</h3>
+      <ul>
+        <li><strong>Choose a Regulated Broker:</strong> Ensure security and transparency.</li>
+        <li><strong>Open a Trading Account:</strong> Select an account type suited to your capital and strategy.</li>
+        <li><strong>Fund Your Account:</strong> Start with an amount you can afford to risk.</li>
+        <li><strong>Develop a Trading Plan:</strong> Define your goals, risk tolerance, and strategy.</li>
+      </ul>
+      
+      <h3>Why Invest with Us?</h3>
+      <ul>
+        <li>✅ <strong>Trusted Platform:</strong> Fully regulated, secure trading environment.</li>
+        <li>✅ <strong>Advanced Tools:</strong> Real-time market data, indicators, and educational resources.</li>
+        <li>✅ <strong>Expert Support:</strong> Professional analysts and customer service 24/5.</li>
+        <li>✅ <strong>Flexible Accounts:</strong> Designed for beginners to experienced traders.</li>
+      </ul>
+    </section>
+
+    <section class="investment-content">
+      <div class="investment-manager">
+        <img src="../assets/images/abdullah.jpeg" alt="Investment Manager & Advisor">
+        <br>
+        <h3>Abdullah</h3>
+        <p>Investment Manager & Advisor</p>
+      </div>
+
+      <div class="investment-form">
+        <h2>Ready to invest with confidence?</h2>
+        <p>Fill out the form below to connect with our investment team.</p>
+        <form action="https://formsubmit.co/Katchdubai@hotmail.com" method="POST">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+          <label for="message">Your Message:</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Katch Real Estate Dubai. All Rights Reserved</p>
+    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-icon">
+        <img src="../assets/icons/whatsapp.png" alt="WhatsApp">
+    </a>
+</footer>
+</body>
+</html>

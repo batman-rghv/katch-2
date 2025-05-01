@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History - Katch Real Estate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Lato'; 
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
@@ -15,9 +18,15 @@
             flex-direction: column;
             min-height: 100vh;
         }
+        h1, h2 {
+        font-family: 'Playfair Display'; /* Use Playfair Display for headings */
+    }
 
+    body, p, label, input, textarea, button, nav ul li a, ul li {
+        font-family: 'Lato'; /* Use Lato for all other text */
+    }
         header {
-            background-color: #004643;
+            background-color: #ffffff;
             padding: 20px 0;
             text-align: center;
         }
@@ -33,6 +42,7 @@
         }
 
         header h2 {
+            font-family: 'Playfair Display';
             font-size: 16px;
         }
 
@@ -44,8 +54,9 @@
         }
 
         .history-section h1 {
+            font-family: 'Playfair Display', sans-serif; /* Ensure paragraphs use Lato */
             font-size: 2.5rem;
-            color: #004643;
+            color: #000000;
             margin-bottom: 20px;
         }
 
@@ -64,7 +75,8 @@
         }
 
         .history-content {
-            max-width: 800px;
+            max-width: 1000px;
+            font-family: 'Lato', sans-serif; /* Ensure paragraphs use Lato */
             margin: 0 auto;
             display: flex;
             align-items: flex-start;
@@ -77,6 +89,8 @@
             height: auto;
             border-radius: 15px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateX(-100px) translateY(40px); /* Move the image 100px to the left */
+
         }
 
         .history-content-text {
@@ -84,8 +98,10 @@
         }
 
         .history-content h2 {
-            font-size: 1.8rem;
-            color: #004643;
+            font-size: 2rem;
+            font-family: 'Playfair Display';
+            word-spacing: 8px;
+            color: #000000;
             margin-bottom: 10px;
         }
 
@@ -120,14 +136,107 @@
             width: 40px;
             height: auto;
         }
+
+        /* Navigation Bar Styling */
+        nav {
+            position: fixed; /* Fix the nav bar at the top */
+            top: 0;
+            width: 100%; /* Full width */
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+            backdrop-filter: blur(5px); /* Adds a blur effect */
+            z-index: 1000; /* Ensure it stays above other elements */
+            padding: 15px 0; /* Add padding for spacing */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0); /* Subtle shadow */
+        }
+
+        nav ul {
+            list-style: none; /* Remove default list styling */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Center-align navigation items */
+            gap: 200px; /* Space between items */
+        }
+
+        nav ul li {
+            position: relative; /* Enable positioning for dropdown menus */
+        }
+
+        nav ul li a {
+            font-family: 'Lato', sans-serif; /* Change font to Lato */
+            text-decoration: none; /* Remove underline */
+            color: #333; /* Dark gray for links */
+            font-size: 16px; /* Adjust font size */
+            font-weight: 600; /* Slightly bold */
+            transition: color 0.3s ease; /* Smooth hover effect */
+        }
+
+        nav ul li a:hover {
+            color: #00509e; /* Change color on hover */
+        }
+
+        nav ul li a.active {
+            text-decoration: underline; /* Underline the active link */
+            color: #00509e; /* Highlight color for the active link */
+            font-weight: bold; /* Make the active link bold */
+        }
+
+        /* Dropdown Menu Styling */
+        nav ul li .dropdown-menu {
+            display: none; /* Hide by default */
+            position: absolute;
+            top: 100%; /* Position below the parent list item */
+            left: 50%; /* Start at the middle of the parent */
+            transform: translateX(-50%); /* Center the dropdown menu */
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent white background */
+            padding: 10px 20px;
+            list-style: none;
+            text-align: left;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+            z-index: 10;
+        }
+
+        nav ul li .dropdown-menu li {
+            padding: 5px 20px;
+        }
+
+        nav ul li .dropdown-menu li a {
+            font-family: 'Lato', sans-serif; /* Change font to Lato */
+            color: #ffffff; /* Dark gray text for dropdown links */
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li:hover .dropdown-menu {
+            display: block; /* Show the dropdown menu on hover */
+        }
     </style>
 </head>
 <body>
-    <header>
-        <a href="../index.html" style="text-decoration: none; color: inherit;">
-            <h1>Katch</h1>
-            <h2>Real Estate Broker</h2>
-        </a>
+    <header class="header">
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="../index.html">Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../index.html#developers">Developers and Partners</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#gallery">Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pages/career.html">Career</a></li>
+                <li class="dropdown">
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../pages/team.html">Team</a></li>
+                        <li><a href="../pages/contact.html">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pages/investments.html">Investments</a></li>
+                <li><a href="./history.html" class="active">History</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -137,7 +246,7 @@
                 <img src="../assets/images/MrUsama.jpeg" alt="Mr. Usama Al Wadiya">
                 <div class="history-content-text">
                     <h2>USAMA AL WADIYA</h2>
-                    <p>CEO AND FOUNDER</p>
+                    <p>CEO AND FOUNDER
                     <p>
                         Founded in 2003 by visionary entrepreneur Jackson, our company set out with a clear mission: 
                         to redefine the landscape of real estate development, management, and sales. With a deep commitment 

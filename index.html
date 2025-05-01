@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katch Real Estate Broker</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+
+<style>
+    h1, h2 {
+        font-family: 'Playfair Display'; /* Use Playfair Display for headings */
+    }
+
+    body, p, label, input, textarea, button, nav ul li a, ul li {
+        font-family: 'Lato'; /* Use Lato for all other text */
+    }
+    /* Hero Section Styling */
+.hero {
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), 
+                url('./assets/images/bg1.webp') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff; /* Default color for text */
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', sans-serif; /* Use Playfair Display for the main heading */
+    font-size: 80px;
+    margin: 0;
+    color: #ffffff; /* Dark blue for better contrast */
+}
+
+.hero h2 {
+    font-family: 'Lato', sans-serif; /* Use Lato for the subheading */
+    font-size: 30px;
+    margin: 10px 0;
+    color: #ffffff; /* Slightly lighter blue for contrast */
+}
+
+.hero p {
+    font-family: 'Lato', sans-serif; /* Use Lato for the paragraph */
+    font-size: 20px;
+    margin: 20px 0;
+    color: #ffffff; /* Medium blue for better readability */
+}
+
+/* Section Headings Styling */
+.developers-partners h2,
+.services h2,
+.gallery h2 {
+    font-family: 'Playfair Display', sans-serif; /* Use Playfair Display for section headings */
+    font-size: 36px;
+    color: #003366; /* Dark blue for better contrast */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Services Section Styling */
+.services {
+    margin-top: 50px; /* Add space above the section */
+    margin-bottom: 50px; /* Add space below the section */
+    padding: 20px;
+    text-align: center; /* Center-align the heading */
+}
+
+.services h2 {
+    font-family: 'Playfair Display', serif; /* Use Playfair Display for the heading */
+    font-size: 36px;
+    margin-bottom: 40px; /* Add space below the heading */
+    color: #003366; /* Dark blue for better contrast */
+    text-align: center;
+}
+
+.services-content {
+    display: flex;
+    gap: 40px; /* Add space between the left and right sections */
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.services-left {
+    width: 40%; /* Left section with images */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between images */
+    position: relative; /* Enable positioning for child elements */
+}
+
+.services-left .service:nth-child(1) {
+    margin-left: 0; /* First image stays in its original position */
+}
+
+.services-left .service:nth-child(2) {
+    margin-left: 250px; /* Second image shifted slightly to the right */
+}
+
+.services-left .service:nth-child(3) {
+    margin-left: 0; /* Third image aligned with the first */
+}
+
+.services-left .service {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.services-left .service img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.services-left .service:hover img {
+    transform: scale(1.1); /* Zoom in on hover */
+}
+
+/* Default Text Styling (Sales, Rent, Investment) */
+.services-left .service .default-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    font-family: 'Lato', sans-serif;
+    font-size: 24px; /* Larger font size for default text */
+    font-weight: bold;
+    color: #4db4b3; /* Darker color for better contrast */
+    text-align: center;
+    z-index: 1;
+    transition: opacity 0.3s ease; /* Smooth fade-out effect */
+}
+
+/* Hover Text Styling */
+.services-left .service .hover-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px; /* Reduced font size by 2px */
+    text-align: center;
+    padding: 15px; /* Increased padding for a wider text box */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+    border-radius: 5px;
+    z-index: 2;
+    width: 90%; /* Increased width of the hover text box */
+}
+
+/* Show Hover Text and Hide Default Text on Hover */
+.services-left .service:hover .hover-text {
+    opacity: 1; /* Show hover text */
+}
+
+.services-left .service:hover .default-text {
+    opacity: 0; /* Hide default text */
+}
+
+.services-right {
+    width: 60%; /* Right section with text */
+    font-family: 'Lato';
+    font-size: 20px;
+    color: #333; /* Dark gray for text */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align text to the top */
+}
+
+.services-right p,
+
+.services-right ul {
+    font-family: 'Lato', sans-serif; /* Use Lato for the text */
+    font-size: 20px; /* Adjust font size if needed */
+    color: #333; /* Dark gray for better readability */
+    line-height: 1.6; /* Improve line spacing for readability */
+}
+
+.services-right ul {
+    font-family: 'Lato', sans-serif; /* Use Lato for the list */
+    font-size: 20px; /* Set font size to 20px */
+    color: #333; /* Dark gray for better readability */
+    line-height: 1.6; /* Improve line spacing for readability */
+    margin: 10; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    list-style-position: inside; /* Ensure bullets align with text */
+}
+
+.services-right ul li {
+    margin-bottom: 10px; /* Add spacing between list items */
+}
+
+/* Navigation Bar Styling */
+nav ul {
+    font-family: 'Lato', sans-serif; /* Use Lato for the navigation bar */
+    font-size: 16px; /* Adjust font size if needed */
+    color: #333; /* Dark gray for better readability */
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 200px; /* Increased gap for more spacing between items */
+}
+
+nav ul li a {
+    font-family: 'Lato', sans-serif; /* Use Lato for navigation links */
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Dark gray for links */
+    font-weight: 600; /* Make the text slightly bold */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+nav ul li a:hover {
+    color: #00509e; /* Change color on hover */
+}
+
+nav ul li a.active {
+    text-decoration: underline; /* Underline the active link */
+    color: #00509e; /* Optional: Change the color of the active link */
+    font-weight: bold; /* Optional: Make the active link bold */
+}
+
+/* Dropdown Menu Styling */
+nav ul li {
+    position: relative; /* Enable positioning for dropdown menus */
+}
+
+nav ul li .dropdown-menu {
+    position: absolute;
+    top: 100%; /* Position below the parent list item */
+    left: 50%; /* Start at the middle of the parent */
+    transform: translateX(-50%); /* Center the dropdown menu */
+    background-color: #000; /* Background color for the dropdown */
+    color: #fff; /* Text color */
+    padding: 10px 20px;
+    display: none; /* Hide by default */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+    z-index: 10;
+}
+
+nav ul li:hover .dropdown-menu {
+    display: block; /* Show the dropdown menu on hover */
+}
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav>
+  <ul>
+    <li class="dropdown">
+      <a href="#" class="active">Home</a>
+      <ul class="dropdown-menu">
+        <li><a href="#developers">Developers and Partners</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </li>
+    <li><a href="./pages/career.html">Career</a></li>
+    <li class="dropdown">
+      <a href="#">About Us</a>
+      <ul class="dropdown-menu">
+        <li><a href="./pages/team.html">Team</a></li>
+        <li><a href="./pages/contact.html">Contact Us</a></li>
+      </ul>
+    </li>
+    <li><a href="./pages/investments.html">Investments</a></li>
+    <li><a href="./pages/history.html">History</a></li>
+  </ul>
+</nav>
+  </header>
+
+  <!-- Add a new sticky logo that appears after scrolling -->
+    <div class="sticky-logo">
+    <a href="#top" class="logo">Katch Real Estate</a>
+  </div>
+    
+  <main>
+    <div class="hero">
+      <h1>KATCH</h1>
+      <h2>REAL ESTATE BROKER</h2>
+      <p>SINCE 2003</p>
+    </div>
+    <br><br><br>
+
+    <div class="developers-partners" id="developers">
+      <h2>DEVELOPERS AND PARTNERS</h2>
+      <br><br>
+      <br><br><br>
+      <div class="partners-logos">
+        <div class="logos-wrapper">
+          <!-- Original set of logos -->
+          <img src="./assets/images/emaar.png" alt="Emaar">
+          <img src="./assets/images/sobha.jpg" alt="Sobha Realty">
+          <img src="./assets/images/meraas" alt="Meraas">
+          <img src="./assets/images/nakheel.png" alt="Nakheel">
+          <img src="./assets/images/damac.webp" alt="Damac">
+          <img src="./assets/images/evera.jpg" alt="Evera">
+          <img src="./assets/images/imtiaz.png" alt="Imtiaz">
+          <img src="./assets/images/azizi.jpg" alt="Azizi">
+          <img src="./assets/images/samana.jpg" alt="Samana">
+          <img src="./assets/images/ellington.jpeg" alt="Ellington">
+          <img src="./assets/images/danube.png" alt="Danube">
+          <img src="./assets/images/asteco.png" alt="Asteco">
+
+          <!-- Duplicate set of logos for seamless looping -->
+          <img src="./assets/images/emaar.png" alt="Emaar">
+          <img src="./assets/images/sobha.jpg" alt="Sobha Realty">
+          <img src="./assets/images/meraas" alt="Meraas">
+          <img src="./assets/images/nakheel.png" alt="Nakheel">
+          <img src="./assets/images/damac.webp" alt="Damac">
+          <img src="./assets/images/evera.jpg" alt="Evera">
+          <img src="./assets/images/imtiaz.png" alt="Imtiaz">
+          <img src="./assets/images/azizi.jpg" alt="Azizi">
+          <img src="./assets/images/samana.jpg" alt="Samana">
+          <img src="./assets/images/ellington.jpeg" alt="Ellington">
+          <img src="./assets/images/danube.png" alt="Danube">
+          <img src="./assets/images/asteco.png" alt="Asteco">
+        </div>
+      </div>
+    </div>
+    <br><br><br>
+
+    <div class="services" id="services">
+    <h2>Services</h2> <!-- Centered heading -->
+    <br><br>
+    <div class="services-content">
+        <!-- Left Section with Images -->
+        <div class="services-left">
+            <div class="service">
+                <img src="./assets/images/property1.jpeg" alt="Sales">
+                <!-- <div class="default-text">Sales</div> -->
+                <div class="hover-text">Whether you're buying, upsizing, downsizing, or selling, our experienced team guides you from consultation to closing. We tailor our approach with market analysis, innovative marketing, and expert negotiation to ensure the best outcome. With Katch, you gain a trusted partner dedicated to your success.</div>
+            </div>
+            <div class="service">
+                <img src="./assets/images/property4.jpeg" alt="Rent">
+                <!-- <div class="default-text">Rent</div> -->
+                <div class="hover-text">For tenants, we offer well-maintained properties and a seamless leasing experience. For landlords, we provide full-service rental management, maximizing returns and protecting investments. Katch ensures an efficient, reliable experience for all.</div>
+            </div>
+            <div class="service">
+                <img src="./assets/images/property8.jpeg" alt="Investment">
+                <!-- <div class="default-text">Investment</div> -->
+                <div class="hover-text">Whether you're experienced or new to investing, our team provides the insight and strategy to help you make informed decisions. We align your goals with high-performing assets, ensuring maximum returns and long-term success. With Katch, you gain a trusted partner for your investment journey.</div>
+            </div>
+        </div>
+
+        <!-- Right Section with Text -->
+        <div class="services-right">
+            <br>  <br>       
+            <p>
+                Founded in 2003, Katch Real Estate brings over 21 years of expertise to deliver results-driven services:
+            </p>
+            <ul>
+                <li><strong>Property Management:</strong> Efficient management to maximize property value.</li>
+                <li><strong>Asset Management:</strong> Strategies to grow and protect investments.</li>
+                <li><strong>Real Estate Brokerage:</strong> Support for buying, selling, or renting with confidence.</li>
+                <li><strong>Investment & Development Consultancy:</strong> Expert advice for investment and development opportunities.</li>
+                <li><strong>Tailored Solutions:</strong> Personalized strategies to meet your unique goals.</li>
+            </ul>
+            <p>
+                At Katch Real Estate, we go beyond transactions—we turn your real estate aspirations into reality with excellence, integrity, and client-first service. Let's build your future together!
+            </p>
+        </div>
+    </div>
+</div>
+    <div class="gallery" id="gallery">
+    <h2>Gallery</h2>
+    <br> <br>
+    <div class="gallery-container">
+        <img src="./assets/images/property1.jpeg" alt="Gallery Image 1">
+        <img src="./assets/images/property3.jpeg" alt="Gallery Image 3">
+        <img src="./assets/images/property4.jpeg" alt="Gallery Image 4">
+        <img src="./assets/images/property6.jpeg" alt="Gallery Image 6">
+        <img src="./assets/images/property7.jpeg" alt="Gallery Image 7">
+        <img src="./assets/images/property8.jpeg" alt="Gallery Image 8">
+        <img src="./assets/images/property5.jpeg" alt="Gallery Image 5">
+        <img src="./assets/images/property9.jpeg" alt="Gallery Image 9">
+        <!-- <img src="./assets/images/property2.jpeg" alt="Gallery Image 2"> -->
+    </div>
+</div>
+  <footer> <p>© 2025 Katch Real Estate Dubai. All Rights Reserved</p>
+    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-icon">
+        <img src="./assets/icons/whatsapp.png" alt="WhatsApp">
+    </a>
+  </footer>
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body></html>
