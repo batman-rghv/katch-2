@@ -211,10 +211,114 @@
         nav ul li:hover .dropdown-menu {
             display: block; /* Show the dropdown menu on hover */
         }
-    </style>
+
+
+
+
+    /* Responsive Design for Mobile Screens */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        text-align: center;
+    }
+
+    .history-section {
+        padding: 10px;
+    }
+
+    .history-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .history-content img {
+        transform: none; /* Remove the offset for mobile */
+        max-width: 100%;
+    }
+
+    .history-content-text {
+        text-align: center;
+    }
+
+    .history-gallery {
+        grid-template-columns: repeat(2, 1fr); /* Adjust grid for smaller screens */
+        gap: 10px;
+    }
+
+    footer {
+        font-size: 10px;
+    }
+
+    .whatsapp-icon {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    nav ul li .dropdown-menu {
+        position: static;
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: none;
+    }
+}
+
+/* Kebab Menu Styling for Mobile */
+.kebab-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1100; /* Ensure it stays above other elements */
+}
+
+nav ul {
+    transition: transform 0.3s ease-in-out; /* Smooth slide-in effect */
+}
+
+@media (max-width: 768px) {
+    .kebab-menu {
+        display: block; /* Show kebab menu on mobile */
+    }
+
+    nav ul {
+        display: none; /* Hide the menu by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below the kebab menu */
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    nav ul.show {
+        display: flex; /* Show the menu when toggled */
+    }
+}
+</style>
 </head>
 <body>
     <header class="header">
+        <!-- Kebab Menu Icon -->
+        <div class="kebab-menu" onclick="toggleMenu()">☰</div>
         <nav>
             <ul>
                 <li class="dropdown">
@@ -282,5 +386,13 @@
             <img src="../assets/icons/whatsapp.png" alt="WhatsApp">
         </a>
     </footer>
+
+    <script>
+        // filepath: c:\DATA\FL\katch2\pages\history.html
+        function toggleMenu() {
+            const navMenu = document.querySelector('nav ul');
+            navMenu.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
