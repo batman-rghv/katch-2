@@ -170,10 +170,137 @@
   .forex-images img:nth-child(even) {
     margin-left: 0; /* Align even images to the left */
   }
-    </style>
+
+  /* Responsive Design for Mobile Screens */
+  @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        text-align: center;
+    }
+
+    .investment-wrapper {
+        flex-direction: column; /* Stack sections vertically */
+        gap: 20px; /* Add spacing between sections */
+    }
+
+    .investment-intro {
+        margin-left: 0; /* Remove left margin */
+        max-width: 100%; /* Allow full width */
+        text-align: center; /* Center-align text */
+    }
+
+    .investment-intro h1 {
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Remove transform */
+        margin-bottom: 20px; /* Add spacing below the heading */
+    }
+
+    .forex-images-section {
+        align-items: center; /* Center-align images */
+    }
+
+    .forex-images img {
+        width: 100%; /* Make images responsive */
+        max-width: 300px; /* Set a maximum width */
+        margin-left: 0; /* Remove left margin */
+    }
+
+    .forex-images img:nth-child(odd),
+    .forex-images img:nth-child(even) {
+        margin-left: 0; /* Remove zigzag pattern for mobile */
+    }
+
+    .investment-content {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center-align content */
+        text-align: center; /* Center-align text */
+    }
+
+    .investment-manager img {
+        max-width: 100%; /* Make the image responsive */
+        width: 200px; /* Set a maximum width */
+    }
+
+    .investment-form {
+        width: 100%; /* Allow full width */
+        padding: 0 10px; /* Add padding for spacing */
+    }
+
+    footer {
+        font-size: 10px; /* Adjust font size for smaller screens */
+    }
+
+    .whatsapp-icon {
+        position: fixed;
+        bottom: 10px;
+        right: 10px; /* Further adjustment for smaller screens */
+        transform: translateX(-10px);
+    }
+}
+
+.whatsapp-icon {
+    position: fixed;
+    bottom: 10px;
+    right: 10px; /* Adjusted from 50px to 10px */
+    z-index: 1000;
+}
+
+/* Kebab Menu Styling for Mobile */
+.kebab-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 15px;
+    right: 59px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1100; /* Ensure it stays above other elements */
+}
+
+nav ul {
+    transition: transform 0.3s ease-in-out; /* Smooth slide-in effect */
+}
+
+@media (max-width: 768px) {
+    .kebab-menu {
+        display: block; /* Show kebab menu on mobile */
+    }
+
+    nav ul {
+        display: none; /* Hide the menu by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below the kebab menu */
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    nav ul.show {
+        display: flex; /* Show the menu when toggled */
+    }
+}
+</style>
 </head>
 <body>
   <header class="header">
+    <!-- Kebab Menu Icon -->
+    <div class="kebab-menu" onclick="toggleMenu()">☰</div>
     <nav>
       <ul>
           <li class="dropdown">
@@ -296,5 +423,13 @@
         <img src="../assets/icons/whatsapp.png" alt="WhatsApp">
     </a>
 </footer>
+
+<script>
+    // filepath: c:\DATA\FL\katch2\pages\investments.html
+    function toggleMenu() {
+        const navMenu = document.querySelector('nav ul');
+        navMenu.classList.toggle('show');
+    }
+</script>
 </body>
 </html>

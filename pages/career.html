@@ -197,10 +197,116 @@
     right: 30px;
     cursor: pointer;
 }
-  </style>
+/* Responsive Design for Mobile Screens */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        text-align: center;
+    }
+
+    .careers-section {
+        padding: 20px; /* Reduce padding for smaller screens */
+        font-size: 18px; /* Adjust font size for readability */
+    }
+
+    .careers-section h1 {
+        font-size: 36px; /* Reduce heading size */
+    }
+
+    .careers-section p {
+        font-size: 16px; /* Adjust paragraph font size */
+        margin-right: 0; /* Remove right margin */
+        text-align: center; /* Center-align text */
+    }
+
+    .form-container {
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Allow full width */
+        padding: 15px; /* Add padding for spacing */
+    }
+
+    .form-container h2 {
+        font-size: 20px; /* Adjust heading size */
+        text-align: center; /* Center-align heading */
+    }
+
+    .form-container p {
+        font-size: 14px; /* Adjust paragraph font size */
+        text-align: center; /* Center-align text */
+    }
+
+    .form-container input,
+    .form-container button {
+        width: 100%; /* Full width for inputs and buttons */
+    }
+
+    footer {
+        font-size: 8px; /* Adjust font size for smaller screens */
+    }
+
+    .whatsapp-icon img {
+        width: 40px; /* Reduce icon size */
+        height: 40px;
+        bottom: 20px; /* Adjust position */
+        right: 20px;
+    }
+}
+/* Kebab Menu Styling for Mobile */
+.kebab-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1100; /* Ensure it stays above other elements */
+}
+
+nav ul {
+    transition: transform 0.3s ease-in-out; /* Smooth slide-in effect */
+}
+
+@media (max-width: 768px) {
+    .kebab-menu {
+        display: block; /* Show kebab menu on mobile */
+    }
+
+    nav ul {
+        display: none; /* Hide the menu by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below the kebab menu */
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    nav ul.show {
+        display: flex; /* Show the menu when toggled */
+    }
+}
+</style>
 </head>
 <body>
   <header class="header">
+    <!-- Kebab Menu Icon -->
+    <div class="kebab-menu" onclick="toggleMenu()">☰</div>
     <nav>
         <ul>
             <li class="dropdown">
@@ -275,5 +381,13 @@
         <img src="../assets/icons/whatsapp.png" alt="WhatsApp">
     </a>
 </footer>
+
+<script>
+    // filepath: c:\DATA\FL\katch2\pages\career.html
+    function toggleMenu() {
+        const navMenu = document.querySelector('nav ul');
+        navMenu.classList.toggle('show');
+    }
+</script>
 </body>
 </html>

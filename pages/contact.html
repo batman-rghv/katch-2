@@ -211,10 +211,106 @@
   font-family: 'Lato', sans-serif;
   z-index: 1000; /* Ensure it stays above other elements */
 }
+
+/* Responsive Design for Mobile Screens */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li {
+        text-align: center;
+    }
+
+    .contact-header {
+        padding: 20px; /* Reduce padding for smaller screens */
+        text-align: center;
+    }
+
+    .contact-header h1 {
+        font-size: 28px; /* Reduce heading size */
+    }
+
+    .contact-header p {
+        font-size: 14px; /* Adjust paragraph font size */
+        line-height: 1.4; /* Adjust line height */
+    }
+
+    .contact-container {
+        flex-direction: column; /* Stack sections vertically */
+        padding: 20px; /* Reduce padding */
+    }
+
+    .contact-info, .contact-form {
+        margin: 10px 0; /* Add spacing between sections */
+        width: 100%; /* Full width for sections */
+    }
+
+    .contact-info iframe {
+        height: 200px; /* Reduce map height */
+    }
+
+    .contact-form input, .contact-form textarea {
+        font-size: 14px; /* Adjust input font size */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .contact-form button {
+        font-size: 14px; /* Adjust button font size */
+        padding: 8px; /* Adjust padding */
+    }
+
+    footer {
+        font-size: 8px; /* Adjust font size for smaller screens */
+    }
+}
+
+/* Kebab Menu Styling for Mobile */
+.kebab-menu {
+    display: none; /* Hidden by default */
+    transform: translateX(-38px);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #333; /* Ensure the icon is visible */
+    cursor: pointer;
+    z-index: 2000; /* Ensure it stays above other elements */
+}
+
+@media (max-width: 768px) {
+    .kebab-menu {
+        display: block; /* Show kebab menu on mobile */
+    }
+
+    nav ul {
+        display: none; /* Hide the menu by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below the kebab menu */
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    nav ul.show {
+        display: flex; /* Show the menu when toggled */
+    }
+}
   </style>
 </head>
 <body>
   <header class="header">
+    <!-- Kebab Menu Icon -->
+    <div class="kebab-menu" onclick="toggleMenu()">☰</div>
     <nav>
         <ul>
             <li class="dropdown">
@@ -305,5 +401,13 @@
   <footer>
     <p>© 2025 Katch Real Estate Dubai. All Rights Reserved</p>
   </footer>
+
+  <script>
+    // filepath: c:\DATA\FL\katch2\pages\contact.html
+    function toggleMenu() {
+        const navMenu = document.querySelector('nav ul');
+        navMenu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>

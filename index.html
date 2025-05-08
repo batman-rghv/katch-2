@@ -219,6 +219,7 @@ nav ul {
     margin: 0;
     display: flex;
     gap: 200px; /* Increased gap for more spacing between items */
+    transition: transform 0.3s ease-in-out; /* Smooth slide-in effect */
 }
 
 nav ul li a {
@@ -260,10 +261,138 @@ nav ul li .dropdown-menu {
 nav ul li:hover .dropdown-menu {
     display: block; /* Show the dropdown menu on hover */
 }
+
+/* Kebab Menu Styling for Mobile */
+.kebab-menu {
+    display: none; /* Hidden by default */
+    transform: translateX(-40px);
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 2000; /* Ensure it stays above other elements */
+    background-color: rgba(0, 0, 0, 0);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .kebab-menu {
+        display: block; /* Show kebab menu on mobile */
+    }
+
+    nav ul {
+        display: none; /* Hide the menu by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below the kebab menu */
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 1000;
+        gap: 15px; /* Reduce gap for mobile */
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 5px 0;
+    }
+    
+    nav ul li a {
+        color: #fff; /* Make text white for better visibility */
+        font-size: 18px;
+    }
+
+    nav ul.show {
+        display: flex; /* Show the menu when toggled */
+    }
+    
+    /* Adjust dropdown positioning for mobile */
+    nav ul li .dropdown-menu {
+        position: static;
+        transform: none;
+        width: 100%;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 5px 0;
+    }
+    
+    nav ul li .dropdown-menu li {
+        margin: 8px 0;
+    }
+    
+    nav ul li .dropdown-menu li a {
+        font-size: 16px;
+        color: #ccc; /* Slightly lighter than parent links */
+    }
+
+    /* Services section mobile adjustments */
+    .services-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .services-left {
+        width: 100%;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .services-left .service {
+        width: 85%;
+        max-width: 280px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+    
+    .services-left .service img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        border-radius: 10px;
+    }
+    
+    /* Image positioning for mobile */
+    .services-left .service:nth-child(1) {
+        align-self: center;
+        margin-left: 0;
+    }
+    
+    .services-left .service:nth-child(2) {
+        align-self: flex-end;
+        margin-right: 30px;
+    }
+    
+    .services-left .service:nth-child(3) {
+        align-self: center;
+        margin-left: 0;
+    }
+    
+    /* Make hover text more visible on mobile */
+    .services-left .service .hover-text {
+        font-size: 11px;
+        padding: 10px;
+        width: 90%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    
+}
   </style>
 </head>
 <body>
   <header class="header">
+    <!-- Add Kebab Menu Icon -->
+    <div class="kebab-menu" onclick="toggleMenu()">☰</div>
     <nav>
   <ul>
     <li class="dropdown">
@@ -403,4 +532,11 @@ nav ul li:hover .dropdown-menu {
   </footer>
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script>
+    // Add this function to toggle the menu
+    function toggleMenu() {
+        const navMenu = document.querySelector('nav ul');
+        navMenu.classList.toggle('show');
+    }
+  </script>
 </body></html>

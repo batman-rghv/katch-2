@@ -132,6 +132,7 @@
 
         nav ul li {
             position: relative; /* Enable positioning for dropdown menus */
+            z-index: 1000; /* Ensure parent list items are above other elements */
         }
 
         nav ul li a {
@@ -160,24 +161,13 @@
             top: 100%; /* Position below the parent list item */
             left: 50%; /* Start at the middle of the parent */
             transform: translateX(-50%); /* Center the dropdown menu */
-            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent white background */
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
             padding: 10px 20px;
             list-style: none;
             text-align: left;
             min-width: 160px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
-            z-index: 10;
-        }
-
-        nav ul li .dropdown-menu li {
-            padding: 5px 20px;
-        }
-
-        nav ul li .dropdown-menu li a {
-            font-family: 'Lato', sans-serif; /* Change font to Lato */
-            color: #ffffff; /* White text for dropdown links */
-            text-decoration: none;
-            font-size: 16px;
+            z-index: 2000; /* Ensure it stays above other elements */
         }
 
         nav ul li:hover .dropdown-menu {
@@ -243,8 +233,25 @@ footer p {
     .team-member {
         text-align: center; /* Center-align text for each team member */
         margin: 0 auto; /* Center-align the container */
+        position: relative; /* Add position relative for adjustments */
     }
 
+    /* Image position adjustments for mobile only */
+    .team-member.agent1 img {
+        transform: translateX(95px); /* Move agent1 image right by 20px */
+    }
+    
+    .team-member.manager img {
+        transform: translateX(-25px); /* Move manager image left by 10px */
+    }
+    
+    .team-member.employee img {
+        transform: translateX(-430px); /* Move employee image left by 200px */
+    }
+    .team-member.agent1 h3,p{
+        transform: translateX(95px);
+    }
+    
     .team-member img {
         width: 80%; /* Make images responsive to screen width */
         max-width: 300px; /* Set a maximum width for employees' images */
@@ -269,14 +276,150 @@ footer p {
         margin: 0;
         color: #555;
     }
+    
+    /* Properly targeting text elements for each team member */
+    .team-member.agent1 h3, .team-member.agent1 p {
+        transform: translateX(95px);
+    }
+    
+    .team-member.manager h3, .team-member.manager p {
+        transform: translateX(-25px);
+    }
+    
+    .team-member.employee h3, .team-member.employee p {
+        transform: translateX(-430px);
+    }
+    
+    /* For CEO and agent2, ensure text is centered below the image */
+    .team-member.ceo h3, .team-member.ceo p,
+    .team-member.agent2 h3, .team-member.agent2 p {
+        transform: translateX(0);
+    }
 }
 
+/* Kebab Menu Styling for Mobile - BASE STYLING ONLY */
+.kebab-menu {
+    display: none; /* Hidden by default */
+    transform: translateX(-350px); /* Move button 250px to the left */
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 2000; /* Ensure it stays above other elements */
+    background-color: rgba(0, 0, 0, 0);
+    padding: 5px;
+    border-radius: 5px;
+}
 
+@media (max-width: 768px) {
+    /* Show kebab icon but remove all other mobile nav styling */
+    .kebab-menu {
+        display: block;
+    }
 
+    /* Remove all navigation mobile styles */
+    nav ul {
+        /* Basic display property only */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below the kebab menu */
+        right: 200px; /* Move list items 250px to the left */
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 1000;
+        gap: 15px; /* Reduce gap for mobile */
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    nav ul li {
+        text-align: center;
+        margin: 5px 0;
+    }
+    
+    nav ul li a {
+        color: #fff; /* Make text white for better visibility */
+        font-size: 18px;
+    }
+    
+    /* Adjust dropdown positioning for mobile */
+    nav ul li .dropdown-menu {
+        position: static;
+        transform: none;
+        width: 100%;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 5px 0;
+    }
+    
+    nav ul li .dropdown-menu li {
+        margin: 8px 0;
+    }
+    
+    nav ul li .dropdown-menu li a {
+        font-size: 16px;
+        color: #ccc; /* Slightly lighter than parent links */
+    }
+
+    /* Footer adjustments for mobile */
+    footer {
+        font-size: 10px; /* Further reduce font size for smaller screens */
+        padding: 10px 0; /* Adjust padding */
+    }
+
+    .whatsapp-icon img {
+        right: 15px; /* Ensure the icon is visible within the mobile display */
+    }
+}
+/* Footer adjustments for mobile */
+footer {
+    font-size: 12px; /* Reduced font size */
+    padding: 15px 0; /* Add padding for touch-friendly design */
+    text-align: center; /* Center-align text */
+    position: relative;
+    transform: translateX(-80px);
+    left: 0; /* Reset left alignment */
+}
+
+footer p {
+    margin: 0;
+    color: #555; /* Slightly lighter color for better readability */
+}
+
+/* WhatsApp icon adjustments for mobile */
+.whatsapp-icon img {
+    width: 40px; /* Smaller icon size for mobile */
+    height: 40px;
+    bottom: 30px; /* Adjust position */
+    right: 10px; /* Bring the icon closer to the screen edge */
+    position: fixed;
+    transform: translateX(80px);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    footer {
+        font-size: 10px; /* Further reduce font size for smaller screens */
+        padding: 10px 0; /* Adjust padding */
+    }
+
+    .whatsapp-icon img {
+        right: 15px; /* Ensure the icon is visible within the mobile display */
+    }
+}
 </style>
 </head>
 <body>
     <header class="header">
+        <!-- Kebab Menu Icon -->
+        <div class="kebab-menu" onclick="toggleMenu()">☰</div>
         <nav>
             <ul>
                 <li class="dropdown">
@@ -342,5 +485,12 @@ footer p {
             <img src="../assets/icons/whatsapp.png" alt="WhatsApp">
         </a>
     </footer>
+    <script>
+        // filepath: c:\DATA\FL\katch2\pages\team.html
+        function toggleMenu() {
+            const navMenu = document.querySelector('nav ul');
+            navMenu.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
