@@ -289,6 +289,40 @@
     nav ul li .dropdown-menu li {
         margin: 5px 0;
     }
+    
+    /* Dropdown menu handling for mobile */
+    nav ul li.dropdown {
+        position: relative;
+    }
+    
+    nav ul li.dropdown .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: static;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6); /* Slightly lighter than parent menu */
+        padding: 5px 0;
+        margin-top: 5px;
+    }
+    
+    nav ul li.dropdown.open .dropdown-menu {
+        display: block; /* Show when parent has 'open' class */
+    }
+    
+    nav ul li.dropdown > a {
+        position: relative;
+    }
+    
+    /* Style the dropdown items to match the image */
+    nav ul li .dropdown-menu li {
+        margin: 5px 0;
+    }
+    
+    nav ul li .dropdown-menu li a {
+        font-size: 16px;
+        color: #ffffff;
+        padding: 8px 15px;
+        display: block;
+    }
 }
 
 /* Kebab Menu Styling for Mobile */
@@ -312,23 +346,47 @@ nav ul {
     }
 
     nav ul {
-        display: none; /* Hide the menu by default */
+        /* Basic display property only */
+        display: none;
         flex-direction: column;
         position: absolute;
+        transform: translateX(190px);
         top: 60px; /* Below the kebab menu */
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.9);
+        right: 200px; /* Move list items 250px to the left */
+        background-color: rgba(0, 0, 0, 0.8);
         width: 100%;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 10px 0;
         z-index: 1000;
+        gap: 15px; /* Reduce gap for mobile */
     }
 
     nav ul li {
         text-align: center;
         margin: 10px 0;
     }
+    nav ul li a {
+        color: #fff; /* Make text white for better visibility */
+        font-size: 18px;
+    }
 
+    nav ul li .dropdown-menu {
+        position: static;
+        transform: none;
+        width: 100%;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 5px 0;
+    }
+    
+    nav ul li .dropdown-menu li {
+        margin: 8px 0;
+    }
+    
+    nav ul li .dropdown-menu li a {
+        font-size: 16px;
+        color: #ccc; /* Slightly lighter than parent links */
+    }
     nav ul.show {
         display: flex; /* Show the menu when toggled */
     }
@@ -413,6 +471,45 @@ nav ul {
             const navMenu = document.querySelector('nav ul');
             navMenu.classList.toggle('show');
         }
+
+        // Add this new function for handling dropdowns
+        document.addEventListener('DOMContentLoaded', function() {
+            // For mobile: prevent default behavior for dropdown parent links and toggle dropdown
+            const dropdownLinks = document.querySelectorAll('nav ul li.dropdown > a');
+            
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Only handle dropdown toggle on mobile
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault(); // Prevent navigation
+                        
+                        // Close all other dropdowns first
+                        const allDropdowns = document.querySelectorAll('nav ul li.dropdown');
+                        allDropdowns.forEach(dropdown => {
+                            if (dropdown !== this.parentElement && dropdown.classList.contains('open')) {
+                                dropdown.classList.remove('open');
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        this.parentElement.classList.toggle('open');
+                    }
+                });
+            });
+            
+            // Close dropdown menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    const dropdowns = document.querySelectorAll('nav ul li.dropdown');
+                    dropdowns.forEach(dropdown => {
+                        // If click is outside dropdown
+                        if (!dropdown.contains(e.target)) {
+                            dropdown.classList.remove('open');
+                        }
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>

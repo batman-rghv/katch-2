@@ -50,16 +50,20 @@
     .contact-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center; /* Center-align the boxes */
       align-items: flex-start;
-      padding: 50px;
-      background-color: #ffffff; /* White background for contrast */
+      padding: 20px; /* Adjust padding */
+      background-color: #ffffff;
+      max-width: 1000px; /* Limit the container width */
+      margin: 0 auto; /* Center the container */
+      transform: translateX(-20px);
     }
 
     .contact-info, .contact-form {
       flex: 1;
-      min-width: 300px;
-      margin: 20px;
+      min-width: 280px; /* Ensure boxes don't shrink too much */
+      max-width: 500px; /* Limit the width of each box */
+      margin: 10px; /* Add spacing between boxes */
       padding: 20px;
       background: #f9f9f9;
       border-radius: 10px;
@@ -273,12 +277,12 @@
 /* Kebab Menu Styling for Mobile */
 .kebab-menu {
     display: none; /* Hidden by default */
-    transform: translateX(-38px);
-    position: absolute;
+    position: fixed;
+    transform: translateX(-40px);
     top: 15px;
     right: 20px;
     font-size: 24px;
-    color: #333; /* Ensure the icon is visible */
+    color: #333;
     cursor: pointer;
     z-index: 2000; /* Ensure it stays above other elements */
 }
@@ -287,22 +291,69 @@
     .kebab-menu {
         display: block; /* Show kebab menu on mobile */
     }
-
+    
     nav ul {
         display: none; /* Hide the menu by default */
         flex-direction: column;
         position: absolute;
+        transform: translateX(-80px);
         top: 60px; /* Below the kebab menu */
         right: 0;
-        background-color: rgba(255, 255, 255, 0.9);
-        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Changed to more transparent black */
+        width: 90%;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 10px 0;
         z-index: 1000;
+        border-radius: 10px;
+        text-align: center;
     }
-
+    
     nav ul.show {
         display: flex; /* Show the menu when toggled */
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        color: #ffffff;
+        font-size: 18px;
+      
+    }
+    
+    /* Dropdown menu handling for mobile */
+    nav ul li.dropdown {
+        position: relative;
+    }
+    
+    nav ul li.dropdown .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: static;
+        transform: none;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.2); /* Slightly more transparent than parent */
+        box-shadow: none;
+        padding: 5px 0;
+        margin-top: 5px;
+    }
+    
+    nav ul li.dropdown.open .dropdown-menu {
+        display: block; /* Show when parent has 'open' class */
+    }
+    
+    nav ul li.dropdown > a {
+        position: relative;
+    }
+    
+    nav ul li .dropdown-menu li {
+        margin: 5px 0;
+    }
+    
+    nav ul li .dropdown-menu li a {
+        color: #ffffff;
+        padding: 8px 15px;
     }
 }
   </style>
